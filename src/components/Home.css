@@ -14,7 +14,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px; /* Space between Upload buttons */
+  gap: 0px; /* Space between Upload buttons */
 }
 
 .futuristic-button {
@@ -27,7 +27,7 @@
   
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
-  margin: 0 15px;
+  margin: 0 10px;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   backdrop-filter: blur(10px); /* Frosted glass effect */
@@ -36,12 +36,19 @@
 .futuristic-button:hover {
   background: rgba(0, 255, 204, 0.2);
   transform: scale(1.1); /* Slightly enlarge on hover */
-  box-shadow: 0 0 15px #ffa500;;
+  box-shadow: 0 0 10px #ffa500;;
 }
 
 .futuristic-button:active {
   transform: scale(0.95);
   box-shadow: 0 0 10px #00ffcc;
+}
+/* Active button (Generate Ranking when conditions are met) */
+.active-button {
+  background: rgba(0, 255, 0, 0.532); /* Green background for active state */
+  color: #0f0909; /* Bright green text */
+  border: 2px solid #00ff00; /* Green border */
+  box-shadow: 0 0 25px #00ff00; /* Glow effect */
 }
 
 
@@ -123,15 +130,15 @@
   border: 2px solid #a1dda6;
   border-radius: 30px;
   padding: 20px 35px;
-  font-size: 28px;
+  font-size: 25px;
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
   backdrop-filter: blur(100px); /* Frosted glass effect */
   margin-top: 20px; /* Space above wide button */
   width: calc(100% - 60px); /* Full width minus padding */
-  max-width: 600px; /* Optional max width for better layout */
+  max-width: 580px; /* Optional max width for better layout */
   text-align: center;
 }
 
