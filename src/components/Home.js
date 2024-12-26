@@ -10,6 +10,7 @@ const Home = () => {
   const [isModalOpen, setIsModalOpen] = useState(false); // Track modal state
   const [jobDescription, setJobDescription] = useState(''); // Track text area content
   const [uploadedCVs, setUploadedCVs] = useState([]); // Track uploaded CVs
+  const [isJobDescriptionEntered, setIsJobDescriptionEntered] = useState(false); // Track if job description is entered
   
   const dispatch = useDispatch();
 
@@ -22,9 +23,14 @@ const handleCloseModal = () => {
 };
 
 const handleOkClick = () => {
+  if(jobDescription.trim(0)) {
+    setIsJobDescriptionEntered(true);
     console.log('Job Description:', jobDescription); // Log the entered text
     dispatch(setButtonClicked('Upload Job Description'));
     handleCloseModal(); // Close the modal
+
+  }
+    
 };
 
 
@@ -39,6 +45,8 @@ const handleOkClick = () => {
       setUploadedCVs(files); // Update the state with uploaded files
       console.log('Uploaded files:', Array.from(files).map((file) => file.name));
   };
+
+  const areConditionsMet = isJobDescriptionEntered && uploadedCVs.length >= 2;
 
   const handleRankingClick = () => {
     if (jobDescription.trim() && uploadedCVs.length > 1) {
@@ -72,7 +80,7 @@ const handleOkClick = () => {
               </label>
               </div>
               <button
-                className="generate_ranking"
+                className={`generate_ranking ${areConditionsMet ? 'active-button' : ''}`}
                 onClick={handleRankingClick}
               >
                 GENERATE RANKING
