@@ -1,74 +1,47 @@
-import React from 'react';
+import './Navbar.css';
 
-const Navbar = ({setSection}) => {
+import React, { useState } from 'react';
+import LoginModal from './LoginModal';
 
-  return ( 
+const Navbar = ({ setSection }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
+  return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
-            CVBuilder
-          </a>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon" />
-          </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#" onClick={()=> setSection('Home')}>
+          {/* Left-aligned items */}
+          <div className="navbar-left">
+            <a className="navbar-brand" 
+               href="#"
+               onClick={() => setSection('Home')}
+            >
+              CVBuilder
+            </a>
+               <a
+                  className="nav-link"
+                  href="#"
+                  onClick={() => setSection('Home')}
+                >
                   Home
                 </a>
-              </li>
-              <li className="nav-item">
                 <a className="nav-link" href="#">
                   Link
                 </a>
-              </li>
-              <li className="nav-item dropdown">
                 <a
-                  className="nav-link dropdown-toggle"
+                  className="nav-link"
                   href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
+                  onClick={() => setSection('About')}
                 >
-                  Dropdown
-                </a>
-                <ul className="dropdown-menu">
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Action
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Another action
-                    </a>
-                  </li>
-                  <li>
-                    <hr className="dropdown-divider" />
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Something else here
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#" onClick={()=> setSection('About')}>
                   About
                 </a>
-              </li>
-            </ul>
+          </div>
+
+          {/* Right-aligned items */}
+          <div className="navbar-right">
             <form className="d-flex" role="search">
               <input
                 className="form-control me-2"
@@ -76,18 +49,19 @@ const Navbar = ({setSection}) => {
                 placeholder="Search"
                 aria-label="Search"
               />
-              <button className="btn btn-outline-success" type="submit">
+              <button className="btn-search" type="submit">
                 Search
               </button>
             </form>
-            <button className="btn_login" >
-                Login
-              </button>
+            <button className="btn_login" onClick={openModal}>
+              Login
+            </button>
           </div>
         </div>
       </nav>
-    </div> 
-  )
-}
+      <LoginModal isOpen={isModalOpen} onClose={closeModal} />
+    </div>
+  );
+};
 
 export default Navbar;

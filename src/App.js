@@ -10,7 +10,7 @@ import Home from './components/Home';
 
 function App() {
 
-  const [section, setSection] = useState('')
+  const [section, setSection] = useState('Home')
   return (
     <>
       <Navbar setSection={setSection}/>
