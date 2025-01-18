@@ -1,0 +1,69 @@
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Space between left and right sections */
+    align-items: center; /* Vertically align items */
+    padding:1px 10px;
+    background: transparent; /* No background color */
+    border: none;
+  }
+  
+  /* Left Section (Logo + Links) */
+  .navbar-left {
+    display: flex; /* Align horizontally */
+    align-items: center; /* Vertically align items */
+    gap: 40px; /* Space between items */
+    font-weight: bold;
+  }
+  
+  /* Logo Styling */
+  .navbar-brand {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color:white;
+    text-decoration: none;
+  }
+  
+
+  .nav-link {
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: white; /* White text for links */
+    transition: color 0.3s ease;
+  }
+  
+  .nav-link:hover {
+    transform: scale(1.2); /* Hover effect */
+  }
+  
+  /* Right Section (Search + Login) */
+  .navbar-right {
+    display: flex; /* Horizontal layout */
+    align-items: center; /* Vertically align */
+    gap: 15px; /* Space between search and login button */
+  }
+  
+  /* Search Bar */
+  .form-control {
+    width: 280px;
+  }
+  
+  /* Login Button */
+  .btn_login {
+    background: rgb(20, 189, 147);
+    color: black;
+    font-weight: bold;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  
+  .btn_login:hover {
+    background: #f8f402;
+  }
+  
+ 
+  
